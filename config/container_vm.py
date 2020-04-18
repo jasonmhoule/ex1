@@ -34,6 +34,20 @@ def GenerateConfig(context):
   res = []
   base_name = (context.env['deployment'] + '-' +
                context.env['name'])
+  MANIFEST = """
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: simple-echo
+  spec:
+    containers:
+    - name: simple-echo
+      image: gcr.io/google-samples/hello-app:2.0
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 8080
+        hostPort: 8080
+  """
 
   # Properties for the container-based instance.
   instance = {
@@ -45,18 +59,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': 'apiVersion: v1 \n
-                        kind: Pod \n
-                        metadata: \n
-                          name: simple-echo \n
-                        spec: \n
-                          containers: \n
-                          - name: simple-echo \n
-                            image: gcr.io/google-samples/hello-app:2.0 \n
-                            imagePullPolicy: Always \n
-                            ports: \n
-                            - containerPort: 8080 \n
-                              hostPort: 8080',
+              'value': MANIFEST,
               }]
       },
       'disks': [{
