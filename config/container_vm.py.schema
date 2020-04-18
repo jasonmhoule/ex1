@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+imports:
+- path: container_manifest.yaml
+  name: container_manifest
+
 info:
   title: Container VM
   author: Google Inc.
