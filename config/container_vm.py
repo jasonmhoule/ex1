@@ -45,8 +45,18 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': context.imports[
-                  context.properties['containerManifest']],
+              'value': 'apiVersion: v1 \
+                        kind: Pod \
+                        metadata: \
+                          name: simple-echo \
+                        spec: \
+                          containers: \
+                          - name: simple-echo \
+                            image: gcr.io/google-samples/hello-app:2.0 \
+                            imagePullPolicy: Always \
+                            ports: \
+                            - containerPort: 8080 \
+                              hostPort: 8080',
               }]
       },
       'disks': [{
