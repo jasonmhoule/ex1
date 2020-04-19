@@ -71,8 +71,7 @@ def GenerateConfig(context):
               'diskName': base_name + '-disk',
               'sourceImage': GlobalComputeUrl('cos-cloud',
                                               'images',
-                                              context.properties[
-                                                  'containerImage'])
+                                              'family/cos-stable')
               },
       }],
       'networkInterfaces': [{
