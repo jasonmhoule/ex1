@@ -20,4 +20,3 @@ resources:
     type: container_vm.py
     properties:
       zone: us-central1-a
-      containerImage: family/cos-stable
