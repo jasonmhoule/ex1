@@ -19,7 +19,6 @@ info:
 
 required:
   - zone
-  - containerImage
 
 properties:
   zone:
