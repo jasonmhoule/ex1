@@ -32,8 +32,8 @@ def GenerateConfig(context):
   """Generate configuration."""
 
   res = []
-  base_name = (context.env['deployment'] + '-' +
-               context.env['name'])
+  base_name = (context.env['deployment'] + '-vm1')
+  
   MANIFEST = """
   apiVersion: v1
   kind: Pod
