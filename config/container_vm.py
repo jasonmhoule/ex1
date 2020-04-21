@@ -66,8 +66,8 @@ def GenerateConfig(context):
       tty: true
       restartPolicy: Always
       ports:
-      - containerPort: 8080
-        hostPort: 8080
+      - containerPort: 8787
+        hostPort: 8787
   """
   
 
@@ -81,7 +81,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST
+              'value': MANIFEST2
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
