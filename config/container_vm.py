@@ -48,6 +48,28 @@ def GenerateConfig(context):
       - containerPort: 8080
         hostPort: 8080
   """
+  
+  MANIFEST2 = """
+  apiVersion: v1
+  kind: Pod
+  metadata:
+    name: rocker
+  spec:
+    containers:
+    - name: rocker
+      image: docker.io/rocker/rstudio
+      imagePullPolicy: Always
+      env:
+      - name: PASSWORD
+        value: swordfish
+      stdin: true
+      tty: true
+      restartPolicy: Always
+      ports:
+      - containerPort: 8080
+        hostPort: 8080
+  """
+  
 
   # Properties for the container-based instance.
   instance = {
@@ -59,8 +81,15 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST,
-              }]
+              'value': MANIFEST
+              },{
+              'key': 'google-logging-enabled',
+              'value': 'true'
+          }]
+      },
+      'tags': {
+          'items': ['http-server',
+                    'https-server']
       },
       'disks': [{
           'deviceName': 'boot',
