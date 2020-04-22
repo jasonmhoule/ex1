@@ -38,26 +38,15 @@ def GenerateConfig(context):
   apiVersion: v1
   kind: Pod
   metadata:
-    name: simple-echo
-  spec:
-    containers:
-    - name: simple-echo
-      image: gcr.io/google-samples/hello-app:2.0
-      imagePullPolicy: Always
-      ports:
-      - containerPort: 8080
-        hostPort: 8080
-  """
-  
-  MANIFEST2 = """
-  apiVersion: v1
-  kind: Pod
-  metadata:
     name: rocker
   spec:
     containers:
     - name: rocker
       image: docker.io/rocker/rstudio
+      volumeMounts:
+      - name: rpro-connect
+        mountPath: /home/rpro
+        readOnly: false\n
       imagePullPolicy: Always
       env:
       - name: PASSWORD
@@ -81,7 +70,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST2
+              'value': MANIFEST
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
