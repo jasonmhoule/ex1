@@ -46,7 +46,7 @@ def GenerateConfig(context):
       volumeMounts:
       - name: rpro-connect
         mountPath: /home/rpro
-        readOnly: false\n
+        readOnly: false
       imagePullPolicy: Always
       env:
       - name: PASSWORD
