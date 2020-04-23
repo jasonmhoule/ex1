@@ -51,6 +51,10 @@ def GenerateConfig(context):
       env:
       - name: PASSWORD
         value: swordfish
+      - name: USER
+        value: jasonmhoule
+      - name: ROOT
+        value: true
       stdin: true
       tty: true
       ports:
