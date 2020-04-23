@@ -56,11 +56,11 @@ def GenerateConfig(context):
       ports:
       - containerPort: 8787
         hostPort: 8787
-  restartPolicy: Always
-  volumes:
-  - name: host-path-0
-    hostPath:
-      path: /home/rpro      
+      restartPolicy: Always
+    volumes:
+    - name: host-path-0
+      hostPath:
+        path: /home/rpro      
   """
           
   # Properties for the container-based instance.
