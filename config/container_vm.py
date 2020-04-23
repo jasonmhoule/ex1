@@ -47,10 +47,6 @@ def GenerateConfig(context):
       - name: host-path-0
         mountPath: /home/rpro
         readOnly: false
-      volumes:
-      - name: host-path-0
-        hostPath:
-        path: /home/rpro
       imagePullPolicy: Always
       env:
       - name: PASSWORD
@@ -61,6 +57,11 @@ def GenerateConfig(context):
       ports:
       - containerPort: 8787
         hostPort: 8787
+    volumes:
+    - name: host-path-0
+      hostPath:
+      path: /home/rpro
+      
   """
   
   # Properties for the container-based instance.
