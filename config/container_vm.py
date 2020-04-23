@@ -44,9 +44,13 @@ def GenerateConfig(context):
     - name: rocker
       image: docker.io/rocker/rstudio
       volumeMounts:
-      - name: rpro-connect
+      - name: host-path-0
         mountPath: /home/rpro
         readOnly: false
+      volumes:
+      - name: host-path-0
+        hostPath:
+        path: /home/rpro
       imagePullPolicy: Always
       env:
       - name: PASSWORD
@@ -59,7 +63,6 @@ def GenerateConfig(context):
         hostPort: 8787
   """
   
-
   # Properties for the container-based instance.
   instance = {
       'zone': context.properties['zone'],
