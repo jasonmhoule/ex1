@@ -111,7 +111,8 @@ def GenerateConfig(context):
           'email': 'default',
           'scopes': [
             "https://www.googleapis.com/auth/logging.write",
-            "https://www.googleapis.com/auth/monitoring.write"
+            "https://www.googleapis.com/auth/monitoring.write",
+            "https://www.googleapis.com/auth/devstorage.full_control"
           ]
       }]
   }
