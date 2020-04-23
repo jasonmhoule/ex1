@@ -53,17 +53,16 @@ def GenerateConfig(context):
         value: swordfish
       stdin: true
       tty: true
-      restartPolicy: Always
       ports:
       - containerPort: 8787
         hostPort: 8787
-    volumes:
-    - name: host-path-0
-      hostPath:
-      path: /home/rpro
-      
+  restartPolicy: Always
+  volumes:
+  - name: host-path-0
+    hostPath:
+      path: /home/rpro      
   """
-  
+          
   # Properties for the container-based instance.
   instance = {
       'zone': context.properties['zone'],
