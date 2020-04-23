@@ -74,6 +74,9 @@ def GenerateConfig(context):
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
+              },{
+              'key': 'startup-script',
+              'value': 'docker run --rm -v /home/rpro:/home/rpro gcr.io/google-containers/toolbox gsutil cp -r gs://automail /home/rpro'
           }]
       },
       'tags': {
