@@ -24,3 +24,6 @@ properties:
   zone:
     description: Zone in which this VM will run
     type: string
+  get_folder:
+    description: Folder from GCS bucket 'jmh' to get
+    type: string
