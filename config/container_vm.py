@@ -27,6 +27,14 @@ def ZonalComputeUrl(project, zone, collection, name):
   return ''.join([COMPUTE_URL_BASE, 'projects/', project,
                   '/zones/', zone, '/', collection, '/', name])
 
+def StartupScript(get_folder):
+  if get_folder == 'default_get_folder':
+    gf = '*'
+  else:
+    gf = get_folder
+  return ''.join(['docker run --rm -v /home/rpro:/home/rpro gcr.io/google-containers/toolbox gsutil cp -r gs://jmh/',
+                  gf, ' /home/rpro'])
+
 
 def GenerateConfig(context):
   """Generate configuration."""
@@ -83,7 +91,7 @@ def GenerateConfig(context):
               'value': 'true'
               },{
               'key': 'startup-script',
-              'value': 'docker run --rm -v /home/rpro:/home/rpro gcr.io/google-containers/toolbox gsutil cp -r gs://jmh/' + context.properties['get_folder'] + ' /home/rpro'
+              'value': StartupScript(context.properties['get_folder'])
           }]
       },
       'tags': {
