@@ -83,7 +83,7 @@ def GenerateConfig(context):
               'value': 'true'
               },{
               'key': 'startup-script',
-              'value': 'docker run --rm -v /home/rpro:/home/rpro gcr.io/google-containers/toolbox gsutil cp -r gs://jmh/' + context.properties['get_folder'] + ' /home/rpro/' + context.properties['get_folder']
+              'value': 'docker run --rm -v /home/rpro:/home/rpro gcr.io/google-containers/toolbox gsutil cp -r gs://jmh/' + context.properties['get_folder'] + ' /home/rpro'
           }]
       },
       'tags': {
