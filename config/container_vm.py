@@ -27,7 +27,7 @@ def ZonalComputeUrl(project, zone, collection, name):
   return ''.join([COMPUTE_URL_BASE, 'projects/', project,
                   '/zones/', zone, '/', collection, '/', name])
 
-CONFIG_GETTER = 'gsutil cp -r gs://jmh_config/jmh_config/* /home/jasonmhoule/; '
+CONFIG_GETTER = 'docker run --rm -v /home/jasonmhoule:/home/jasonmhoule gcr.io/google-containers/toolbox gsutil cp -r gs://jmh_config/jmh_config/* /home/jasonmhoule/; '
 
 def StartupScript(get_folder):
   if get_folder == 'default_get_folder':
