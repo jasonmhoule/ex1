@@ -43,12 +43,7 @@ def GenerateConfig(context):
   """Generate configuration."""
 
   res = []
-  base_name = (context.env['deployment'] + '-vm1')
-  
-  "spec:\n  containers:\n    - name: dep2-vm1-1\n      image: 'gcr.io/ml-learning-199501/github.com/jasonmhoule/ex1:latest'\n      volumeMounts:\n        - name: host-path-0\n          mountPath: /home/rpro\n          readOnly: false\n      env:\n        - name: PASSWORD\n          value: swordfish\n        - name: USER\n          value: jasonmhoule\n        - name: ROOT\n          value: true\n      stdin: true\n      tty: true\n  restartPolicy: Always\n  volumes:\n    - name: host-path-0\n      hostPath:\n        path: /home/rpro\n\n# This container declaration format is not public API and may change without notice. Please\n# use gcloud command-line tool or Google Cloud Console to run Containers on Google Compute Engine."
-  "spec:\n  containers:\n    - name: dep2-vm1-1\n      image: 'gcr.io/ml-learning-199501/github.com/jasonmhoule/ex1:latest'\n      volumeMounts:\n        - name: host-path-0\n          mountPath: /home/rpro\n          readOnly: false\n      env:\n        - name: PASSWORD\n          value: swordfish\n        - name: USER\n          value: jasonmhoule\n        - name: ROOT\n          value: true\n      stdin: true\n      tty: true\n  restartPolicy: Always\n  volumes:\n    - name: host-path-0\n      hostPath:\n        path: /home/rpro\n\n# This container declaration format is not public API and may change without notice. Please\n# use gcloud command-line tool or Google Cloud Console to run Containers on Google Compute Engine."
-        
-  
+  base_name = (context.env['deployment'] + '-vm1')    
   
   MANIFEST = """
   apiVersion: v1
