@@ -94,9 +94,9 @@ def GenerateConfig(context):
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
-              },{
-              'key': 'startup-script',
-              'value': StartupScript(context.properties['get_folder'])
+#              },{
+#              'key': 'startup-script',
+#              'value': StartupScript(context.properties['get_folder'])
           }]
       },
       'tags': {
