@@ -59,6 +59,7 @@ def GenerateConfig(context):
         mountPath: /home/rpro
         readOnly: false
       imagePullPolicy: Always
+      privleged: true
       env:
       - name: PASSWORD
         value: swordfish
