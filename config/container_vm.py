@@ -53,7 +53,7 @@ def GenerateConfig(context):
   spec:
     containers:
     - name: rocker
-      image: docker.io/rocker/rstudio
+      image: gcr.io/ml-learning-199501/github.com/jasonmhoule/ex1:latest
       volumeMounts:
       - name: host-path-0
         mountPath: /home/rpro
