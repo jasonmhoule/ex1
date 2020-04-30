@@ -1,8 +1,8 @@
 FROM rocker/rstudio:3.6.3
 
-# RUN apt-get update && apt-get install -y \
-#     curl \
-#     gnupg
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg
 
 # # Install gcsfuse: https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md
 # # RUN export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
