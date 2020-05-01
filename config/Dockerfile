@@ -23,4 +23,4 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 
 
-COPY files/gcsfuse.R /home/script.R
+COPY files/gs_loader.R /home/script.R
