@@ -6,10 +6,10 @@ system("gcloud init --account=652580964228-compute@developer.gserviceaccount.com
 # Load config files and change RSA file permissions
 system("gsutil cp -r gs://jmh_config/jmh_config/* . && chmod 600 ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa.pub")
 
-# Download
+# Download all project files from GCS
 system(paste0("gsutil -m cp -r gs://jmh/", proj_name, " ."), intern = TRUE)
 
-# Upload
+# Upload all project files to GCS
 system(paste0("gsutil -m cp -r . gs://jmh/", proj_name), intern = TRUE)
 
 # Once loaded and logged into project, one-time setup to change repo origin to use SSH
