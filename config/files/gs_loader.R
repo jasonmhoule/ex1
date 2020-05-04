@@ -14,3 +14,5 @@ system(paste0("gsutil -m cp -r . gs://jmh/", proj_name), intern = TRUE)
 
 # Once loaded and logged into project, one-time setup to change repo origin to use SSH
 system(paste0("git remote set-url origin git@github.com:jasonmhoule/", proj_name, ".git"), intern = TRUE)
+
+# one test commit
