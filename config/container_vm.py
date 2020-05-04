@@ -42,6 +42,10 @@ def StartupScript(get_folder):
 def GenerateConfig(context):
   """Generate configuration."""
 
+#      imagePullPolicy: Always
+#      securityContext:
+#        privileged: true
+
   res = []
   base_name = (context.env['deployment'] + '-vm1')    
   
@@ -59,8 +63,6 @@ def GenerateConfig(context):
         mountPath: /home/rpro
         readOnly: false
       imagePullPolicy: Always
-      securityContext:
-        privileged: true
       env:
       - name: PASSWORD
         value: swordfish
