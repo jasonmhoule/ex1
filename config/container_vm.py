@@ -58,7 +58,7 @@ def GenerateConfig(context):
       restartPolicy: Always
   """.format(**context.properties)
   
-  MANIFEST = context.imports[context.properties['manitest']].format(**context.properties)
+  MANIFEST = context.imports[context.properties['manitest']]
           
   # Properties for the container-based instance.
   instance = {
@@ -70,7 +70,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST
+              'value': MANIFEST.format(**context.properties)
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
