@@ -42,4 +42,5 @@ properties:
     type: string
   manitest:
     description: Test out the container manifest separation
+    type: string
     default: manitest
