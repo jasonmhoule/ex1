@@ -60,7 +60,7 @@ def GenerateConfig(context):
       restartPolicy: Always
   """.format(**context.properties)
   
-  MANIFEST = manitest.manitest().format(**context.properties)
+  MANIFEST = manitest().format(**context.properties)
           
   # Properties for the container-based instance.
   instance = {
