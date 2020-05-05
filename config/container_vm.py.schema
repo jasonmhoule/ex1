@@ -18,7 +18,7 @@ info:
   description: Creates a Container VM with the provided Container manifest.
 
 imports:
- - path: manitest.py
+ - path: manitest.yaml
    name: manitest
  
 required:
