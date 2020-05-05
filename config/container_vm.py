@@ -65,9 +65,9 @@ def GenerateConfig(context):
       imagePullPolicy: Always
       env:
       - name: PASSWORD
-        value: swordfish
+        value: {password}
       - name: USER
-        value: jasonmhoule
+        value: {user}
       - name: ROOT
         value: true
       stdin: true
@@ -80,7 +80,7 @@ def GenerateConfig(context):
     - name: host-path-0
       hostPath:
         path: /home/rpro      
-  """
+  """.format(**context.properties)
           
   # Properties for the container-based instance.
   instance = {
