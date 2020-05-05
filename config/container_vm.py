@@ -27,24 +27,9 @@ def ZonalComputeUrl(project, zone, collection, name):
   return ''.join([COMPUTE_URL_BASE, 'projects/', project,
                   '/zones/', zone, '/', collection, '/', name])
 
-CONFIG_GETTER = 'docker run --rm -v /home/jasonmhoule:/home/jasonmhoule gcr.io/google-containers/toolbox gsutil cp -r gs://jmh_config/jmh_config/* /home/jasonmhoule/; '
-
-def StartupScript(get_folder):
-  if get_folder == 'default_get_folder':
-    gf = '*'
-  else:
-    gf = get_folder
-  return ''.join([CONFIG_GETTER,
-                  'docker run --rm -v /home/rpro:/home/rpro gcr.io/google-containers/toolbox gsutil cp -r gs://jmh/',
-                  gf, ' /home/rpro'])
-
 
 def GenerateConfig(context):
   """Generate configuration."""
-
-#      imagePullPolicy: Always
-#      securityContext:
-#        privileged: true
 
   res = []
   base_name = (context.env['deployment'] + '-vm1')    
@@ -53,15 +38,11 @@ def GenerateConfig(context):
   apiVersion: v1
   kind: Pod
   metadata:
-    name: rocker
+    name: rstudio-host
   spec:
     containers:
-    - name: rocker
+    - name: rstudio-host
       image: gcr.io/ml-learning-199501/github.com/jasonmhoule/ex1:latest
-      volumeMounts:
-      - name: host-path-0
-        mountPath: /home/rpro
-        readOnly: false
       imagePullPolicy: Always
       env:
       - name: PASSWORD
@@ -76,10 +57,6 @@ def GenerateConfig(context):
       - containerPort: 8787
         hostPort: 8787
       restartPolicy: Always
-    volumes:
-    - name: host-path-0
-      hostPath:
-        path: /home/rpro      
   """.format(**context.properties)
           
   # Properties for the container-based instance.
@@ -88,7 +65,7 @@ def GenerateConfig(context):
       'machineType': ZonalComputeUrl(context.env['project'],
                                      context.properties['zone'],
                                      'machineTypes',
-                                     'n1-standard-1'),
+                                     context.properties['machine']),
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
@@ -96,9 +73,6 @@ def GenerateConfig(context):
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
-#              },{
-#              'key': 'startup-script',
-#              'value': StartupScript(context.properties['get_folder'])
           }]
       },
       'tags': {

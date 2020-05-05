@@ -19,7 +19,7 @@ info:
 
 required:
   - zone
-  - get_folder
+  - machine
   - user
   - password
 
@@ -27,8 +27,8 @@ properties:
   zone:
     description: Zone in which this VM will run
     type: string
-  get_folder:
-    description: Folder from GCS bucket 'jmh' to get
+  machine:
+    description: Machine type for core Rstudio instance
     type: string
   user:
     description: Rstudio username
