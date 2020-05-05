@@ -70,7 +70,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST.format(**context.properties)
+              'value': MANIFEST
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
