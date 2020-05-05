@@ -17,6 +17,9 @@ info:
   author: Google Inc.
   description: Creates a Container VM with the provided Container manifest.
 
+imports:
+ - manitest.py
+ 
 required:
   - zone
   - machine
