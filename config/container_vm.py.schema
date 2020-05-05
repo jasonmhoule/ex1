@@ -40,3 +40,6 @@ properties:
   password:
     description: Rstudio password
     type: string
+  manitest:
+    description: Test out the container manifest separation
+    default: manitest

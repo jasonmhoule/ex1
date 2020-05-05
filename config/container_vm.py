@@ -14,8 +14,6 @@
 
 """Creates a Container VM with the provided Container manifest."""
 
-import manitest
-
 COMPUTE_URL_BASE = 'https://www.googleapis.com/compute/v1/'
 
 
@@ -60,7 +58,7 @@ def GenerateConfig(context):
       restartPolicy: Always
   """.format(**context.properties)
   
-  MANIFEST = manitest.manitest().format(**context.properties)
+  MANIFEST = context.properties['manitest'].manitest().format(**context.properties)
           
   # Properties for the container-based instance.
   instance = {
