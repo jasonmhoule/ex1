@@ -20,6 +20,8 @@ info:
 required:
   - zone
   - get_folder
+  - user
+  - password
 
 properties:
   zone:
@@ -27,4 +29,10 @@ properties:
     type: string
   get_folder:
     description: Folder from GCS bucket 'jmh' to get
+    type: string
+  user:
+    description: Rstudio username
+    type: string
+  password:
+    description: Rstudio password
     type: string
