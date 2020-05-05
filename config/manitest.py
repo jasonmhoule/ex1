@@ -1,4 +1,3 @@
-"""
 apiVersion: v1
 kind: Pod
 metadata:
@@ -21,4 +20,3 @@ spec:
     - containerPort: 8787
       hostPort: 8787
     restartPolicy: Always
-"""
