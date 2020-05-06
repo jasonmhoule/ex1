@@ -18,8 +18,8 @@ info:
   description: Creates a Container VM with the provided Container manifest.
 
 imports:
- - path: manitest.py
-   name: manitest
+- path: manitest.py
+  name: manitest
  
 required:
   - zone
