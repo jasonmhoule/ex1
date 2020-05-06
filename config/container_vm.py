@@ -14,7 +14,7 @@
 
 """Creates a Container VM with the provided Container manifest."""
 
-import manmaker from manitest
+from manitest import manmaker
 
 COMPUTE_URL_BASE = 'https://www.googleapis.com/compute/v1/'
 
