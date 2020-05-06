@@ -22,7 +22,7 @@ def manmaker(context):
       ports:
       - containerPort: 8787
         hostPort: 8787
-     restartPolicy: Always
+      restartPolicy: Always
   """.format(**context.properties)
   
   return MANIFEST
