@@ -14,6 +14,8 @@
 
 """Creates a Container VM with the provided Container manifest."""
 
+import manitest
+
 COMPUTE_URL_BASE = 'https://www.googleapis.com/compute/v1/'
 
 
@@ -70,7 +72,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST
+              'value': manitest.manmaker(context) #MANIFEST
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
