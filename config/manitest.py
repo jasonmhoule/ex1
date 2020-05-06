@@ -1,4 +1,4 @@
-def manmaker(context):
+def GenerateConfig(context):
   
   MANIFEST = """
   apiVersion: v1
