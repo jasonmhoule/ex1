@@ -19,7 +19,6 @@ info:
 
 imports:
 - path: manitest.py
-  name: manitest
  
 required:
   - zone
