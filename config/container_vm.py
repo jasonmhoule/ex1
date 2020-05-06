@@ -18,7 +18,6 @@ from manitest import manmaker
 
 COMPUTE_URL_BASE = 'https://www.googleapis.com/compute/v1/'
 
-
 def GlobalComputeUrl(project, collection, name):
   return ''.join([COMPUTE_URL_BASE, 'projects/', project,
                   '/global/', collection, '/', name])
@@ -34,33 +33,6 @@ def GenerateConfig(context):
 
   res = []
   base_name = (context.env['deployment'] + '-vm1')    
-  
-  MANIFEST = """
-  apiVersion: v1
-  kind: Pod
-  metadata:
-    name: rstudio-host
-  spec:
-    containers:
-    - name: rstudio-host
-      image: gcr.io/ml-learning-199501/github.com/jasonmhoule/ex1:latest
-      imagePullPolicy: Always
-      env:
-      - name: PASSWORD
-        value: {password}
-      - name: USER
-        value: {user}
-      - name: ROOT
-        value: true
-      stdin: true
-      tty: true
-      ports:
-      - containerPort: 8787
-        hostPort: 8787
-      restartPolicy: Always
-  """.format(**context.properties)
-  
-  MANIFEST = manmaker(context)
           
   # Properties for the container-based instance.
   instance = {
@@ -72,7 +44,7 @@ def GenerateConfig(context):
       'metadata': {
           'items': [{
               'key': 'gce-container-declaration',
-              'value': MANIFEST
+              'value': manmaker(context)
               },{
               'key': 'google-logging-enabled',
               'value': 'true'
